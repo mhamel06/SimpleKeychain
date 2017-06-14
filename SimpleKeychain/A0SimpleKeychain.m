@@ -333,7 +333,7 @@
 #ifdef __IPHONE_8_0
     if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
         CFErrorRef error = NULL;
-        SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
+        SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlTouchIDCurrentSet, &error);
         if (error == NULL || accessControl != NULL) {
             query[(__bridge id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
 #if defined __MAC_10_12 || defined __IPHONE_11_0
