@@ -63,7 +63,7 @@
     if (data) {
         string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }else{
-        NSLog(@"Get key failed with error: %@", keyError);
+        NSLog(@"Get key failed with error: %@", keyError.localizedDescription);
     }
     return string;
 }
