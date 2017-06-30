@@ -57,10 +57,13 @@
 }
 
 - (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message {
-    NSData *data = [self dataForKey:key promptMessage:message];
+    NSError *keyError;
+    NSData *data = [self dataForKey:key promptMessage:message error: &keyError];
     NSString *string = nil;
     if (data) {
         string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }else{
+        NSLog(@"Get key failed with error: %@", keyError);
     }
     return string;
 }
