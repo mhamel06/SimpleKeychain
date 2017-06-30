@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return the value or nil if an error occurs.
  */
-- (nullable NSString *)stringForKey:(NSString *)key;
+//- (nullable NSString *)stringForKey:(NSString *)key;
 
 /**
  *  Fetches a NSData from the keychain
@@ -271,9 +271,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return the value or nil if an error occurs.
  */
-- (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message;
+//- (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
-- (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message error:(NSError**)err;
+- (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message error:(NSError **)err;
 
 /**
  *  Fetches a NSData from the keychain

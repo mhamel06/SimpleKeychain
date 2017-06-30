@@ -48,16 +48,16 @@
     return self;
 }
 
-- (NSString *)stringForKey:(NSString *)key {
-    return [self stringForKey:key promptMessage:nil];
-}
+//- (NSString *)stringForKey:(NSString *)key {
+//    return [self stringForKey:key promptMessage:nil];
+//}
 
 - (NSData *)dataForKey:(NSString *)key {
     return [self dataForKey:key promptMessage:nil];
 }
-- (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message {
-    return [self stringForKey: key promptMessage: message error: nil];
-}
+//- (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message {
+//    return [self stringForKey: key promptMessage: message error: nil];
+//}
 
 - (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message error:(NSError**)err {
     NSData *data = [self dataForKey:key promptMessage:message error: err];
