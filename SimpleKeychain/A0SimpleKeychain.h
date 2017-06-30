@@ -273,6 +273,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
+- (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message error:(NSError**)err;
+
 /**
  *  Fetches a NSData from the keychain
  *
