@@ -55,15 +55,17 @@
 - (NSData *)dataForKey:(NSString *)key {
     return [self dataForKey:key promptMessage:nil];
 }
-
 - (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message {
-    NSError *keyError;
-    NSData *data = [self dataForKey:key promptMessage:message error: &keyError];
+    return [self stringForKey: key promptMessage: message error: nil];
+}
+
+- (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message error:(NSError**)err {
+    NSData *data = [self dataForKey:key promptMessage:message error: err];
     NSString *string = nil;
     if (data) {
         string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    }else{
-        NSLog(@"Get key failed with error: %@", keyError.localizedDescription);
+    }else if(err != nil){
+        NSLog(@"Get key failed with error: %@", [*err localizedDescription]);
     }
     return string;
 }
