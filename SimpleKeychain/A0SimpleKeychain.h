@@ -82,6 +82,12 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
      * @see errSecAllocate
      */
     A0SimpleKeychainErrorAllocation = -108,
+    
+    /**
+     * User hits cancel button
+     */
+    A0SimpleKeychainErrorCancel = -132,
+
     /**
      * @see errSecNotAvailable
      */

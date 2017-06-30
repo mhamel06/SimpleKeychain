@@ -269,6 +269,8 @@
             return NSLocalizedStringFromTable(@"errSecItemNotFound: The item cannot be found", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecInteractionNotAllowed:
             return NSLocalizedStringFromTable(@"errSecInteractionNotAllowed: Interaction with the Security Server is not allowed", @"SimpleKeychain", @"Possible error from keychain. ");
+        case A0SimpleKeychainErrorCancel:
+            return NSLocalizedStringFromTable(@"A0SimpleKeychainErrorCancel: User hit cancel auth button", @"SimpleKeychain", @"User canceled authentication");
         case errSecDecode:
             return NSLocalizedStringFromTable(@"errSecDecode: Unable to decode the provided data", @"SimpleKeychain", @"Possible error from keychain. ");
         default:
