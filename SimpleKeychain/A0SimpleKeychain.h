@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
     /**
      * User hits cancel button
      */
-    A0SimpleKeychainErrorCancel = -132,
+    A0SimpleKeychainErrorCancel = -128,
 
     /**
      * @see errSecNotAvailable
