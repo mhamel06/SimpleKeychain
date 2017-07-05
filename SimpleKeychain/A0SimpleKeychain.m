@@ -106,21 +106,21 @@
     return status == errSecSuccess;
 }
 
-- (BOOL)setString:(NSString *)string forKey:(NSString *)key {
-    return [self setString:string forKey:key promptMessage:nil];
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key error:(NSError**)err{
+    return [self setString:string forKey:key promptMessage:nil error: err];
 }
 
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key {
-    return [self setData:data forKey:key promptMessage:nil];
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key error:(NSError**)err {
+    return [self setData:data forKey:key promptMessage:nil error: err];
 }
 
-- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(NSString *)message {
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(NSString *)message error:(NSError**)err {
     NSData *data = key ? [string dataUsingEncoding:NSUTF8StringEncoding] : nil;
-    return [self setData:data forKey:key promptMessage:message];
+    return [self setData:data forKey:key promptMessage:message error: err];
 }
 
 
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message {
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message error:(NSError**)err {
     if (!key) {
         return NO;
     }
@@ -158,12 +158,15 @@
     }
 }
 
-- (BOOL)deleteEntryForKey:(NSString *)key {
+- (BOOL)deleteEntryForKey:(NSString *)key error:(NSError**)err;{
     if (!key) {
         return NO;
     }
     NSDictionary *deleteQuery = [self queryFindByKey:key message:nil];
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)deleteQuery);
+    if(status != errSecSuccess && err != nil){
+        *err = [NSError errorWithDomain:A0ErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey : [self stringForSecStatus:status]}];
+    }
     return status == errSecSuccess;
 }
 

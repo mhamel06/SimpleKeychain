@@ -189,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setString:(NSString *)string forKey:(NSString *)key;
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key error:(NSError**)err;
 
 /**
  *  Saves the NSData with the type `kSecClassGenericPassword` in the keychain.
@@ -199,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key;
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key error:(NSError**)err ;
 
 /**
  *  Saves the NSString with the type `kSecClassGenericPassword` in the keychain.
@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(nullable NSString *)message;
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(nullable NSString *)message error:(NSError**)err;
 
 /**
  *  Saves the NSData with the type `kSecClassGenericPassword` in the keychain.
@@ -221,7 +221,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(nullable NSString *)message;
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(nullable NSString *)message error:(NSError**)err;
 
 ///---------------------------------------------------
 /// @name Remove values
@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return If the entry was removed it will return YES. Otherwise it will return NO.
  */
-- (BOOL)deleteEntryForKey:(NSString *)key;
+- (BOOL)deleteEntryForKey:(NSString *)key error:(NSError**)err;
 
 /**
  *  Remove all entries from the kechain with the service and access group values.
